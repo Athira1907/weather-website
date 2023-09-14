@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/7b9f8c9c43.js" crossorigin="anonymous"></script>
+    <style>
+        .bg{
+            background-image: url(https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,q_auto/v1/filestore/4je6fb1fkrvgby538wkgtjqpqiyj_shutterstock_1031339248%20%281%29.jpg);
+           width: 100%;
+           height: 100vh;
+            background-size: cover;
+position: fixed;
+        }
+       
+        h1{
+            letter-spacing: 0.5em;
+            font-size: 25px;
+            font-weight: 500;
+            margin-left: 800px;
+            margin-top: 60px;
+        }
+        
+        #btn{
+            width: 150px;
+            height: 40px;
+            background-color: azure;
+            text-align: center;
+            color: #000;
+            border-radius: 25px;
+            margin: 40px;
+        }
+        .details{
+           
+            margin: 20px;
+            text-align: center;
+            font-size: 20px;
+            border-top: #000;
+            background: transparent;
+            border-left: #000;
+            border-right: #000;
+            border-color: aliceblue;
+          
+            letter-spacing: 0.3em;
+            padding: 10px 30px;
+        
+        }
+        #cinput{
+            font-size: 20px;
+            border-top: #000;
+            background: transparent;
+            border-left: #000;
+            border-right: #000;
+            border-color: aliceblue;
+        }
+       *{
+        margin: 0;
+        padding: 0;
+       }
+       #content{
+       margin-top: 80px;
+       margin-left: 250px;
+        color: #000;
+        font-size: 30px;
+       }
+      
+    </style>
+</head>
+<body>
+    <div class="bg">
+      <h3 id="content"></h3>
+<h1>WEATHER</h1>
+
+<input type="text"placeholder="Enter the city name" id="cinput"> <br>
+
+<button type="button" id="btn" onclick="display()">Search</button>
+<h4>Weather Details</h4>
+
+<div id="result">
+   
+</div>
+
+    </div>
+   
+</body>
+<script>
+
+async function display(){
+    let searchname = cinput.value
+    if(!searchname){
+        alert('Please Enter the city name')
+    }
+let data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchname}&appid=e9bc86bb0393b3151a00cfaf8ec7db5a`)
+//console.log(data.json());
+data.json().then(
+    output=>displayData(output)
+)
+
+
+}
+function displayData(data){
+  
+  let weatherDetails = data.name
+ let temperature = data.main.temp
+ let pressure = data.main.pressure
+ var calc = (Math.round(temperature - 273))+'&#8451'
+ input=document.getElementById('content') 
+ input.innerHTML= `${weatherDetails} feels ${calc} <br> Pressure: ${pressure}.` 
+ let image1 =document.getElementById('cool')
+ let image2 = document.getElementById('sunny')
+ let image3 = document.getElementById('clear')
+ let wind = data.wind.speed
+ let country = data.sys.country
+ let humidity = data.main.humidity
+ let parag = data.weather[0].description
+ let feel = data.main.feels_like
+ let date =new Date()
+ let month = date.getMonth()
+ let cal =date.getDate()
+ let day = date.getDay()
+ let time =`${month} ${cal} ${day}`
+  let html_Data = `
+  
+  <div class="card ms-5" style="width: 18rem;">
+    <img  id="clear" src="https://wallpapers.com/images/featured/sky-mvehfqz6w2ges2dj.jpg" class="card-img-top" alt="...">
+      
+
+  <div class="card-body">
+    <h5 class="card-title">Weather Details</h5>
+    <li class="list-group-item">${weatherDetails}</li>
+    <p class="card-text">${parag}<br>Feels like ${feel} .</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    
+    <li class="list-group-item">Country:${country}</li>
+    <li class="list-group-item">Temperature:${calc}</li>
+    <li class="list-group-item">Humidity:${humidity}</li>
+    
+    <li class="list-group-item">Wind:${wind}</li>
+  </ul>
+  <div class="card-body">
+    
+    <a href="#" class="card-link"></a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+  `
+ 
+
+result.innerHTML = html_Data
+  //console.log(weatherDetails)
+}
+  
+
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+ integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</html>
