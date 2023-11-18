@@ -2,163 +2,423 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/7b9f8c9c43.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Agdasima&family=Hind+Vadodara&family=Orbitron&family=Oswald&family=Playfair+Display&family=Poppins:wght@300&family=Roboto+Condensed:ital,wght@1,300;1,400&family=Roboto+Mono&family=Roboto:ital,wght@0,300;1,300&family=Tangerine:wght@700&display=swap"
+ rel="stylesheet">
     <style>
+        *{
+            font-family: 'Roboto Mono', monospace;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+           /* overflow-y: hidden; */
+        }
         .bg{
-            background-image: url(https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,q_auto/v1/filestore/4je6fb1fkrvgby538wkgtjqpqiyj_shutterstock_1031339248%20%281%29.jpg);
+           
+            /* background-image: url(https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,q_auto/v1/filestore/4je6fb1fkrvgby538wkgtjqpqiyj_shutterstock_1031339248%20%281%29.jpg); */
            width: 100%;
            height: 100vh;
             background-size: cover;
-position: fixed;
+            /* background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center; */
         }
-       
-        h1{
-            letter-spacing: 0.5em;
-            font-size: 25px;
-            font-weight: 500;
-            margin-left: 800px;
-            margin-top: 60px;
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            row-gap: 60px;
+            max-width: 100%;
+            max-height: 100vh;
         }
-        
-        #btn{
+        .input{
+            display: flex;
+            flex-direction: row;
+        }
+        .data{
+            width: 400px;
+            height: 35px;
+            cursor: pointer;
+        }
+        input{
+          outline: none;
+            text-indent: 70px;
+            border: none;
+            /* background-image: <i class="fa-solid fa-location-dot fa-fade" style="color: blue;"></i>; */
+        }
+        .btn{
+            background-color: rgb(151, 207, 240);
             width: 150px;
-            height: 40px;
-            background-color: azure;
-            text-align: center;
-            color: #000;
-            border-radius: 25px;
-            margin: 40px;
+            height: 38px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
         }
-        .details{
+        ::placeholder{
+            text-align: center;
+            font-size: 18px;
+        }
+        .result{
+            width: 400px;
+            height: 570px;
+            background:transparent;
+            /* background-color: #f3efef; */
+border-radius: 20px;
+display: flex;
+flex-direction: column;
+row-gap: 30px;
+
+            /* background-color: red; */
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            font-size: 22px;
+            color: aliceblue;
+        }
+        h3{
+            text-align: center;
+            color: aliceblue;
+        }
+        h2{
+            text-align: center;
+            color: aliceblue;
+        }
+        /* <!-- media query --> */
+       /* @media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+/* @media (min-width:480px)  { */
+     /* smartphones, Android phones, landscape iPhone */ 
+
+/* @media (min-width:600px)  {  */
+    /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ 
+/* @media (min-width:801px)  {  */
+    /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+/* @media (min-width:1025px) { */
+     /* big landscape tablets, laptops, and desktops */ 
+/* @media (min-width:1281px) {  */
+    /* hi-res laptops and desktops */  
+
+@media screen and (max-width:800px)  {
+    *{
+            font-family: 'Roboto Mono', monospace;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+           /* overflow-y: hidden; */
+        }
+        .bg{
            
-            margin: 20px;
+           /* background-image: url(https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,q_auto/v1/filestore/4je6fb1fkrvgby538wkgtjqpqiyj_shutterstock_1031339248%20%281%29.jpg); */
+          width: 100%;
+          height: 100vh;
+           /* background-size: cover; */
+       }
+       .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            row-gap: 60px;
+            max-width: 100%;
+            max-height: 100vh;
+        }
+        .input{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 30px;
+            font-size: 25px;
+        }
+        .data{
+            width: 300px;
+            height: 35px;
+            cursor: pointer;
+            font-size: 27px;
+            font-weight: 600;
+        }
+        input{
+          outline: none;
+            text-indent: 70px;
+            border: none;
+            /* background-image: <i class="fa-solid fa-location-dot fa-fade" style="color: blue;"></i>; */
+        }
+        .btn{
+            background-color: rgb(151, 207, 240);
+            width: 150px;
+            height: 38px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        ::placeholder{
             text-align: center;
-            font-size: 20px;
-            border-top: #000;
-            background: transparent;
-            border-left: #000;
-            border-right: #000;
-            border-color: aliceblue;
-          
-            letter-spacing: 0.3em;
-            padding: 10px 30px;
-        
+            font-size: 18px;
         }
-        #cinput{
-            font-size: 20px;
-            border-top: #000;
-            background: transparent;
-            border-left: #000;
-            border-right: #000;
-            border-color: aliceblue;
+        .result{
+            width: 400px;
+            height: 590px;
+            background:transparent;
+            /* background-color: #f3efef; */
+border-radius: 20px;
+display: flex;
+flex-direction: column;
+column-gap: 50px;
+font-size: 28px;
+
+            /* background-color: red; */
         }
-       *{
-        margin: 0;
-        padding: 0;
-       }
-       #content{
-       margin-top: 80px;
-       margin-left: 250px;
-        color: #000;
-        font-size: 30px;
-       }
-      
+        ul{
+            list-style: none;
+        }
+        li{
+            font-size: 28px;
+            color: aliceblue;
+        }
+        h3{
+            text-align: center;
+            color: aliceblue;
+            font-size: 26px;
+        }
+        h2{
+            text-align: center;
+            color: aliceblue;
+            font-size: 26px;
+        }
+}
     </style>
 </head>
 <body>
-    <div class="bg">
-      <h3 id="content"></h3>
-<h1>WEATHER</h1>
-
-<input type="text"placeholder="Enter the city name" id="cinput"> <br>
-
-<button type="button" id="btn" onclick="display()">Search</button>
-<h4>Weather Details</h4>
-
-<div id="result">
-   
+   <div class="bg" id="background">
+    <div class="container">
+<h1 style="color: aliceblue;">Weather Details</h1>
+<div class="input">
+    <input  type="text" placeholder="Enter the city" class="data"> <button type="submit" class="btn" onclick="displayDetails()">Search</button>
 </div>
+<div class="result" >
+    <!-- <div style="display: flex;flex-direction: column;"></div> -->
+<!-- <h3>${name}</h3> <br>
+<ul>
+    <li>feels like ${main.feels_like}</li>
+    <li>Clouds :${weather.description}</li>
+    <li>Humidity :${main.humidity}</li>
+    <li>Temp :${main.temp}</li>
+<li>wind :</li>
+</ul> -->
 
+</div>
     </div>
-   
+   </div>
 </body>
 <script>
+   
+  
+// https://api.openweathermap.org/data/2.5/weather?q=${searchname}&appid=e9bc86bb0393b3151a00cfaf8ec7db5a
 
-async function display(){
-    let searchname = cinput.value
-    if(!searchname){
-        alert('Please Enter the city name')
+var background=document.getElementById('background')
+            background.style.backgroundImage="url('https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,q_auto/v1/filestore/4je6fb1fkrvgby538wkgtjqpqiyj_shutterstock_1031339248%20%281%29.jpg')"
+            background.style.width="100%"
+            background.style.height="100vh"
+            background.style.backgroundSize="cover"
+        
+
+
+   async function displayDetails(){
+     //DOM
+    var InputValue=document.querySelector('.data')
+    var data=InputValue.value
+     
+        const weatherapi=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${data}&appid=e9bc86bb0393b3151a00cfaf8ec7db5a`)
+        weatherapi.json().then(output=>display(output))
+       
+// console.log(weatherapi);
+if(!data){
+            alert('Please enter city name')
+        }
     }
-let data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchname}&appid=e9bc86bb0393b3151a00cfaf8ec7db5a`)
-//console.log(data.json());
-data.json().then(
-    output=>displayData(output)
-)
-
-
-}
-function displayData(data){
-  
-  let weatherDetails = data.name
- let temperature = data.main.temp
- let pressure = data.main.pressure
- var calc = (Math.round(temperature - 273))+'&#8451'
- input=document.getElementById('content') 
- input.innerHTML= `${weatherDetails} feels ${calc} <br> Pressure: ${pressure}.` 
- let image1 =document.getElementById('cool')
- let image2 = document.getElementById('sunny')
- let image3 = document.getElementById('clear')
- let wind = data.wind.speed
- let country = data.sys.country
- let humidity = data.main.humidity
- let parag = data.weather[0].description
- let feel = data.main.feels_like
- let date =new Date()
- let month = date.getMonth()
- let cal =date.getDate()
- let day = date.getDay()
- let time =`${month} ${cal} ${day}`
-  let html_Data = `
-  
-  <div class="card ms-5" style="width: 18rem;">
-    <img  id="clear" src="https://wallpapers.com/images/featured/sky-mvehfqz6w2ges2dj.jpg" class="card-img-top" alt="...">
-      
-
-  <div class="card-body">
-    <h5 class="card-title">Weather Details</h5>
-    <li class="list-group-item">${weatherDetails}</li>
-    <p class="card-text">${parag}<br>Feels like ${feel} .</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    
-    <li class="list-group-item">Country:${country}</li>
-    <li class="list-group-item">Temperature:${calc}</li>
-    <li class="list-group-item">Humidity:${humidity}</li>
-    
-    <li class="list-group-item">Wind:${wind}</li>
-  </ul>
-  <div class="card-body">
-    
-    <a href="#" class="card-link"></a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-  `
  
+    function display(weatherapi){
+        const result=document.querySelector('.result')
+ //name
+ var weatherDetails=weatherapi.name
+        console.log(weatherDetails); 
+        //temp
+        var tempCelsius=weatherapi.main.temp
+        var calc=(Math.round(tempCelsius-273)) +'°C'
+       
+        if(calc<=20+'°C'){
+      // var bg = document.getElementsByClassName('bg').style.backgroundImage
+       background.style.backgroundImage="url('https://wallpapercave.com/wp/eEtWSPJ.jpg')"
+       background.style.width="100%"
+       background.style.height="100vh"
+       background.style.backgroundSize="cover"
 
-result.innerHTML = html_Data
-  //console.log(weatherDetails)
+        }
+        else if(calc>=20+'°C'){
+
+           background.style.backgroundImage="url('https://wallpaperaccess.com/full/2033952.jpg')"
+            background.style.width="100%"
+            background.style.height="100vh"
+            background.style.backgroundSize="cover"
+
+        }
+        else{
+            background.style.backgroundImage="url('https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,q_auto/v1/filestore/4je6fb1fkrvgby538wkgtjqpqiyj_shutterstock_1031339248%20%281%29.jpg')"
+            background.style.width="100%"
+            background.style.height="100vh"
+            background.style.backgroundSize="cover"
+        
+        }
+        console.log(calc);
+        console.log(tempCelsius);
+        //humidity
+        let Humidity=weatherapi.main.humidity
+       // console.log(weatherapi.main);
+        console.log(Humidity);
+        //cluds
+        var clouds=weatherapi.weather[0].description
+        console.log(clouds);
+        
+        //feels like
+        var feels=weatherapi.main.feels_like
+        console.log(feels);
+        //wind
+        var wind=weatherapi.wind.speed
+        console.log(wind);
+        //proper tym for sunrise and sunset
+         var sunset=new Date((weatherapi.sys.sunset)*1000) //gives the value in 24 hours format
+         var sunrise=new Date((weatherapi.sys.sunrise)*1000) //gives the value in 24 hours format
+         console.log('sunrise',sunrise);
+        console.log('sunset',sunset);
+// var curSunset=sunset % 12
+// var curSunrise=sunrise % 12
+if(sunrise>12 || sunset>12){
+     const sunsetTime=sunset-12
+    //var sunset=new Date(((weatherapi.sys.sunset)*1000)-12)
+       // var sunrise=new Date(((weatherapi.sys.sunrise)*1000)-12)
+       const sunriseTime=sunrise-12
 }
-  
+else{
+     //proper tym for sunrise and sunset
+    // var sunset=new Date((weatherapi.sys.sunset)*1000) //gives the value in 24 hours format
+        //var sunrise=new Date((weatherapi.sys.sunrise)*1000) //gives the value in 24 hours format
+       sunrise
+       sunset
+}
+// console.log('type of',typeof(sunrise));
+// console.log('type of',typeof(sunset));
+        // console.log('sunrise',sunrise);
+        // console.log('sunset',sunset);
+      //  moment().format('MMMM Do YYYY, h:mm:ss a');
+// console.log(moment().calendar());
+        //date
+        var date=new Date()
+
+    
+            var month=date.getMonth() + 1 //give number
+        console.log('month:' + month);
+        // var day=date.getUTCDate() //give number
+        //  console.log('day:'+ day);
+        // var time=Date.now()
+        // var time=date.getTime() //number
+        var hrs=date.getHours()
+        var ampm = hrs >= 12 ? 'pm' : 'am';
+    var minutes= date.getMinutes()< 10 ?`0${date.getMinutes()}`:`${date.getMinutes()}`
+        if(hrs>12){
+           
+            hrs=hrs-12
+           
+        }
+        else if(hrs===0){
+hrs=12
+
+        }
+        else{
+
+             hrs
+        }
+        var time= hrs + ':' + minutes + ':' + date.getSeconds() + 'sec' + ' ' + ampm
+        
+        //gives the value in 24 hours format
+        console.log('time:'+ time);
+
+        
+//         var month=date.getMonth() + 1 //give number
+//         console.log('month:' + month);
+//         // var day=date.getUTCDate() //give number
+//         //  console.log('day:'+ day);
+//         // var time=Date.now()
+//         // var time=date.getTime() //number
+//         var hrs=date.getHours()
+//         var ampm = hrs >= 12 ? 'pm' : 'am';
+    
+//         if(hrs>12){
+           
+//             hrs=hrs-12
+           
+//         }
+//         else if(hrs===0){
+// hrs=12
+
+//         }
+//         else{
+
+//              hrs
+//         }
+//         var time= hrs + ':' + date.getMinutes() + ':' + date.getSeconds() + 'sec' + ' ' + ampm
+        
+//         //gives the value in 24 hours format
+//         console.log('time:'+ time);
 
 
 
+        var cal=date.getDate()
+        var year=date.getFullYear()
+        var Nowdate=`${cal}/${month}/${year}`
+        console.log(Nowdate);
+        console.log(date.getDate());
+        console.log(date.getFullYear());
+//         var s = new Date(1698972178).toLocaleTimeString()
+// console.log(s)
+
+// function initClock(){
+//     updateClock()
+//     window.setInterval("updateClock()",1)
+// }
+
+
+let html_Data=`
+
+<h2><i class="fa-solid fa-location-dot fa-fade" style="color: blue;"></i> &nbsp;Location : ${weatherDetails}</h2> <br>
+<h3>Description: ${weatherapi.weather[0].description}</h3>
+<ul>
+        <li style="display: flex;"><h3>on ${Nowdate} <br> &nbsp; Time: ${time}</h3></li>    
+       
+        <li ><h3>Pressure :${weatherapi.main.pressure} Pa</h3></li>
+      
+        <li><h3>Humidity :${Humidity}</h3></li>
+    <li><h3>Temperature  :${calc}</h3></li>
+<li><h3>Wind Speed :${wind} km/h</h3></li>    
+</ul>
+`
+result.innerHTML=html_Data
+
+    }
+     // <li><h3>Clouds :${clouds}</h3></li> 
+// // <p><h3>feels like ${feels}</h3></p>
+    // Math.ceil() - rounds the number to a higher value
+//Math.floor() - rounds the number to a lower value
+//Math.round() - rounds the number to either lower or higher value, depending on the number
+//When called with null as an argument, the methods always return 0
+//When called with anything but a number or null as an argument, the methods always return NaN
+//Sunrise: ${sunrise}<br> Sunset: ${sunset}
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
- integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </html>
